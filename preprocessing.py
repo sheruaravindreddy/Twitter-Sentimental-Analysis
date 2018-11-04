@@ -43,7 +43,7 @@ class cleaning:
         
         new_tags = []
         for ord_pair in tags:
-            if ord_pair[1] not in del_tags and len(ord_pair[0]) > 3:
+            if ord_pair[1] not in del_tags and len(ord_pair[0]) >= 3:
 #                new_tags.append(stemmer.stem(ord_pair[0]))
                 new_tags.append(ord_pair[0])
         
