@@ -5,14 +5,6 @@ import nltk
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-import timeit
-t1 = timeit.default_timer()
-
-#from preprocessing import cleaning
-#df = cleaning.df
-#df.to_csv('Cleaned_Data.csv')
-
 cleaned_df = pd.read_csv('Cleaned_Data.csv')
 cleaned_df = cleaned_df.dropna()
 cleaned_df = cleaned_df.reset_index()
@@ -26,10 +18,10 @@ def plot_words(df):
     plt.show()
 
 df_pos = cleaned_df[cleaned_df['label'] == 0]
-#plot_words(df_pos)
+plot_words(df_pos)
 
 df_neg = cleaned_df[cleaned_df['label'] == 1]
-#plot_words(df_neg)
+plot_words(df_neg)
 
 
 def extract_hashtags(tweets):
@@ -58,6 +50,3 @@ neg_ht = sum(extract_hashtags(df['tweet'][df['label'] == 1]),[])
 
 pos_count = plot_hashtag(normal_ht)
 neg_count = plot_hashtag(neg_ht)
-
-t2 = timeit.default_timer()
-print (t2 - t1)
